@@ -1,21 +1,22 @@
+# 각 yaml의 변수 파일
 db:
-  repository: public.ecr.aws/v3g6g4v7/antiwater19-lab2
-  tag: db-v1
+  repository: antiwater19/lab2-mydb
+  tag: v1
   replicas: 1
 
 redis:
-  repository: public.ecr.aws/v3g6g4v7/antiwater19-lab2
-  tag: redis-v1
+  repository: antiwater19/lab2-myredis
+  tag: v1
   replicas: 1
 
 app:
-  repository: public.ecr.aws/v3g6g4v7/antiwater19-lab2
-  tag: app-v1
+  repository: antiwater19/lab2-myapp
+  tag: v1
   replicas: 2
 
 nginx:
-  repository: public.ecr.aws/v3g6g4v7/antiwater19-lab2
-  tag: nginx-v1
+  repository: antiwater19/lab2-mynginx
+  tag: v1
   replicas: 1
 
 
