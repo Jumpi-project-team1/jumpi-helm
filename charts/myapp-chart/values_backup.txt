@@ -1,0 +1,29 @@
+# 각 yaml의 변수 파일
+db:
+  repository: antiwater19/lab2-mydb
+  tag: v1
+  replicas: 1
+
+redis:
+  repository: antiwater19/lab2-myredis
+  tag: v1
+  replicas: 1
+
+app:
+  repository: antiwater19/lab2-myapp
+  tag: v1
+  replicas: 2
+
+nginx:
+  repository: antiwater19/lab2-mynginx
+  tag: v1
+  replicas: 1
+
+
+ingress:
+  healthCheckPath: /healthz
+  host: app.antiwater19.co.kr
+  certificateArn: arn:aws:acm:ap-northeast-1:556683426101:certificate/f9a5c9fa-b1b0-4638-96c1-beb4a3f1f11a
+  group:
+    name: shared-alb
+    order: "10"
