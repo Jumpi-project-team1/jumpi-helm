@@ -10,11 +10,8 @@ redis:
   replicas: 1
 
 app:
-
-
   repository: public.ecr.aws/v3g6g4v7/antiwater19-lab2
   tag: can-run-github-actions-ssh-auth-with-github-secret
-
   replicas: 2
 
 nginx:
