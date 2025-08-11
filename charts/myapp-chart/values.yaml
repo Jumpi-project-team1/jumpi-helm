@@ -22,8 +22,8 @@ nginx:
 
 ingress:
   healthCheckPath: /healthz
-  host: app.antiwater19.co.kr
-  certificateArn: arn:aws:acm:ap-northeast-1:556683426101:certificate/f9a5c9fa-b1b0-4638-96c1-beb4a3f1f11a
+  host: app.jumpi.store
+  certificateArn: arn:aws:acm:ap-northeast-2:504301552141:certificate/97ed9a57-8445-44e0-9d88-ac81b4087493
   group:
     name: shared-alb
     order: "10"
