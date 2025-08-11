@@ -3,7 +3,7 @@ kind: StatefulSet
 metadata:
   name: mysql
 spec:
-  serviceName: mysql-svc
+  serviceName: "mysql-svc"
   replicas: {{ .Values.db.replicas }}
   selector:
     matchLabels:
@@ -18,11 +18,16 @@ spec:
           image: "{{ .Values.db.repository }}:{{ .Values.db.tag }}"
           ports:
             - containerPort: 3306
+              name: mysql
           envFrom:
-            - secretRef:
-                name: frodo-db-secret
-            - configMapRef:
-                name: frodo-db-config
+          - secretRef:
+              name: mysql-secret
+          env:
+          - name: MYSQL_DATABASE
+            valueFrom:
+              configMapKeyRef:
+                name: mysql-config
+                key: MYSQL_DATABASE
           volumeMounts:
             - name: mysql-persistent-storage
               mountPath: /var/lib/mysql

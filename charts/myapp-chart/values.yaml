@@ -12,7 +12,7 @@ redis:
 app:
   repository: public.ecr.aws/r9n4c1b3/minsu/testingapp
   tag: can-run-github-actions-ssh-auth-with-github-secret
-  replicas: 2
+  replicas: 1
 
 nginx:
   repository: antiwater19/lab2-mynginx
