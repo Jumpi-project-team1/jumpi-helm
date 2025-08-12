@@ -1,0 +1,25 @@
+name: release
+on:
+  push:
+    branches: [main]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      # SSH 설정
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.HELM_SSH_DEPLOY_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+
+      - name: Publish Helm charts via SSH
+        uses: stefanprodan/helm-gh-pages@master
+        with:
+          # 토큰 대신 SSH 주소 사용
+          git_url: git@github.com:Jumpi-project-team1/jumpi-helm.git
+          # username/token은 필요 없음
